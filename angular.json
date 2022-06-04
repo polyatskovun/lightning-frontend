@@ -3,12 +3,9 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "lightcalculating-frontend": {
+    "angular.io-example": {
       "projectType": "application",
       "schematics": {
-        "@schematics/angular:component": {
-          "style": "scss"
-        },
         "@schematics/angular:application": {
           "strict": true
         }
@@ -20,18 +17,18 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/lightcalculating-frontend",
+            "outputPath": "dist",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -72,10 +69,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "lightcalculating-frontend:build:production"
+              "browserTarget": "angular.io-example:build:production"
             },
             "development": {
-              "browserTarget": "lightcalculating-frontend:build:development"
+              "browserTarget": "angular.io-example:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -83,7 +80,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "lightcalculating-frontend:build"
+            "browserTarget": "angular.io-example:build"
           }
         },
         "test": {
@@ -93,18 +90,33 @@
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.spec.json",
             "karmaConfig": "karma.conf.js",
-            "inlineStyleLanguage": "scss",
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
-              "src/styles.scss"
+              "./node_modules/@angular/material/prebuilt-themes/purple-green.css",
+              "src/styles.css"
             ],
             "scripts": []
+          }
+        },
+        "e2e": {
+          "builder": "@angular-devkit/build-angular:protractor",
+          "options": {
+            "protractorConfig": "e2e/protractor.conf.js",
+            "devServerTarget": "angular.io-example:serve"
+          },
+          "configurations": {
+            "production": {
+              "devServerTarget": "angular.io-example:serve:production"
+            }
           }
         }
       }
     }
+  },
+  "cli": {
+    "analytics": "b70cdc5d-e8fe-4ace-b033-9dec59f596d6"
   }
 }
