@@ -2,29 +2,36 @@
 * {
   font-family: Arial, Helvetica, sans-serif;
 }
+
 h1 {
   color: #264D73;
   font-size: 2.5rem;
 }
+
 h2, h3 {
   color: #444;
   font-weight: lighter;
 }
+
 h3 {
   font-size: 1.3rem;
 }
+
 body {
   padding: .5rem;
   margin: auto;
 }
+
 @media (min-width: 600px) {
   body {
     padding: 2rem;
   }
 }
+
 body, input[text] {
   font-family: Cambria, Georgia, serif;
 }
+
 a {
   cursor: pointer;
 }
@@ -43,14 +50,17 @@ nav a {
 
 nav a:hover {
   color: white;
-  background-color:  #42545C;
+  background-color: #42545C;
 }
+
 nav a.active {
   color: white;
 }
+
 hr {
   margin: 1.5rem 0;
 }
+
 input[type="text"] {
   box-sizing: border-box;
   width: 100%;
@@ -63,5 +73,16 @@ Copyright Google LLC. All Rights Reserved.
 Use of this source code is governed by an MIT-style license that
 can be found in the LICENSE file at https://angular.io/license
 */
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  background: url("assets/img/background.png");
+}
+
+.to-background {
+  background: rgb(255, 255, 255, 0.6) !important;
+}
