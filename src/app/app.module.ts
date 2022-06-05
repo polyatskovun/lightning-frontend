@@ -1,6 +1,6 @@
 import {NgModule} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
-import {FormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {HttpClientModule} from '@angular/common/http';
 
 import {AppRoutingModule} from './app-routing.module';
@@ -13,8 +13,18 @@ import {LampsComponent} from './module/lamps/lamps.component';
 import {RoomsDetailsComponent} from './module/rooms-details/rooms-details.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTable, MatTableModule} from "@angular/material/table";
-import { SocleComponent } from './module/socle/socle.component';
-import { RoomTypesComponent } from './module/room-types/room-types.component';
+import {SocleComponent} from './module/socle/socle.component';
+import {RoomTypesComponent} from './module/room-types/room-types.component';
+import {SocleFormComponent} from './module/socle/socle-form/socle-form.component';
+import {MatDialogModule} from '@angular/material/dialog';
+import {MatButtonModule} from '@angular/material/button';
+import {MatInputModule} from '@angular/material/input';
+import {MatIconModule} from '@angular/material/icon';
+import {MatDividerModule} from '@angular/material/divider';
+import {DeleteDialogComponent} from './module/shared/delete-dialog/delete-dialog.component';
+import {RoomTypesFormComponent} from './module/room-types/room-types-form/room-types-form.component';
+import {LampsFormComponent} from './module/lamps/lamps-form/lamps-form.component';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
   imports: [
@@ -24,16 +34,27 @@ import { RoomTypesComponent } from './module/room-types/room-types.component';
     HttpClientModule,
     RouterModule,
     BrowserAnimationsModule,
-    MatTableModule
+    MatTableModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatInputModule,
+    MatIconModule,
+    ReactiveFormsModule,
+    MatDividerModule,
+    MatSelectModule
   ],
   declarations: [
     AppComponent,
     DashboardComponent,
     RoomsComponent,
+    RoomTypesFormComponent,
     RoomsDetailsComponent,
     LampsComponent,
+    LampsFormComponent,
     SocleComponent,
     RoomTypesComponent,
+    SocleFormComponent,
+    DeleteDialogComponent,
   ],
   bootstrap: [AppComponent]
 })

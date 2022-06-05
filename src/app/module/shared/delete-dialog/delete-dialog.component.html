@@ -1,0 +1,8 @@
+<h1 mat-dialog-title>{{data.name}}</h1>
+<div mat-dialog-content>
+ {{data.text + ' ' + data.value + '?'}}
+</div>
+<div class="buttons-form" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Назад</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>Видалити</button>
+</div>

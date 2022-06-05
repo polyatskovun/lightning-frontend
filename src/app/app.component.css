@@ -23,3 +23,13 @@ nav a:hover {
   margin-right: auto;
   width: 50em
 }
+
+.selected {
+  color: white !important;
+  background-color: #42545C !important;
+}
+
+.margins {
+  margin-bottom: 7px;
+  margin-top: 7px;
+}

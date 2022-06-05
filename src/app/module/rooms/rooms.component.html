@@ -17,7 +17,7 @@
 
   <ng-container matColumnDef="roomType">
     <th mat-header-cell *matHeaderCellDef> Категорія кімнати</th>
-    <td mat-cell *matCellDef="let element"> {{element.roomType.name}} </td>
+    <td mat-cell *matCellDef="let element" style="max-width: 300px"> {{element.roomType.name}} </td>
   </ng-container>
 
   <ng-container matColumnDef="lightningRate">
@@ -27,7 +27,9 @@
 
   <ng-container matColumnDef="actions">
     <th mat-header-cell *matHeaderCellDef> Дії</th>
-    <td mat-cell *matCellDef="let element"> <a routerLink="/rooms-details/{{element.id}}">Перегляд</a> </td>
+    <td mat-cell *matCellDef="let element">
+      <button mat-button routerLink="/rooms-details/{{element.id}}"><mat-icon>search</mat-icon></button>
+    </td>
   </ng-container>
 
   <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>

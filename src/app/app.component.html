@@ -1,10 +1,11 @@
 <div class="center">
   <h1>{{title}}</h1>
   <nav>
-    <a routerLink="/rooms">Кімнати</a>
-    <a routerLink="/room-types">Типи кімнат</a>
-    <a routerLink="/lamps">Лампи</a>
-    <a routerLink="/socles">Цоколі</a>
+    <a routerLink="/rooms" [class]="getClass('/rooms')">Кімнати</a>
+    <a routerLink="/room-types" [class]="getClass('/room-types')">Типи кімнат</a>
+    <a routerLink="/lamps" [class]="getClass('/lamps')">Лампи</a>
+    <a routerLink="/socles" [class]="getClass('/socles')">Цоколі</a>
   </nav>
+  <mat-divider class="margins"></mat-divider>
   <router-outlet></router-outlet>
 </div>

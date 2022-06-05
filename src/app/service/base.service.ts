@@ -25,4 +25,8 @@ export class BaseService<T> {
   findById(id: number): Observable<T> {
     return this.httpClient.get<T>(this.baseUrl + '/' + id);
   }
+
+  deleteById(id: number): Observable<T> {
+    return this.httpClient.delete<T>(this.baseUrl + '/' + id);
+  }
 }
