@@ -1,4 +1,4 @@
 export interface RecordType {
-  id: number
-  description: string
+  id?: number
+  description?: string
 }

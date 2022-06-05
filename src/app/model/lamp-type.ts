@@ -1,4 +1,4 @@
 export interface LampType {
-  id: number
-  name: string
+  id?: number
+  name?: string
 }

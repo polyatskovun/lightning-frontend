@@ -7,6 +7,7 @@ import {LampTypeService} from '../../../service/lamp-type.service';
 import {Socle} from '../../../model/socle';
 import {Observable} from 'rxjs';
 import {LampType} from '../../../model/lamp-type';
+import {compareById} from '../../shared/utils';
 
 @Component({
   selector: 'app-room-types-form',
@@ -29,6 +30,8 @@ export class LampsFormComponent implements OnInit {
     lampType: [null],
     socle: [null],
   });
+
+  compareById = compareById;
 
   constructor(public dialogRef: MatDialogRef<LampsFormComponent>,
               @Inject(MAT_DIALOG_DATA) public data: Lamp,

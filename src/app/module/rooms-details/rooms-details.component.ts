@@ -11,7 +11,7 @@ import {ActivatedRoute} from "@angular/router";
 })
 export class RoomsDetailsComponent implements OnInit {
 
-  displayedColumns: string[] = ['countLamp', 'countSocle', 'yearCount', 'sum', 'lamp'];
+  displayedColumns: string[] = ['countLamp', 'countSocle', 'yearCount', 'sum', 'lamp', 'status'];
   dataSource: Record[] = [];
   room!: Room;
 
@@ -19,7 +19,9 @@ export class RoomsDetailsComponent implements OnInit {
     service.findById(this.route.snapshot.params['id']).subscribe(r => {
       if (r) {
         this.room = r;
-        this.dataSource = this.room.records;
+        if (this.room.records) {
+          this.dataSource = this.room.records;
+        }
       }
     });
   }
@@ -27,4 +29,26 @@ export class RoomsDetailsComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  getStatus(description: string): string {
+    switch (description.toLowerCase()) {
+      case 'existing': {
+        return 'Поточний';
+      }
+      case 'new': {
+        return 'Новий';
+      }
+      case 'additional': {
+        return 'Додатковий';
+      }
+      case 'optimal': {
+        return 'Оптимальний(новий)';
+      }
+      case 'optimal_add': {
+        return 'Оптимальний(додати до існуючого)';
+      }
+      default: {
+        return 'Новий';
+      }
+    }
+  }
 }

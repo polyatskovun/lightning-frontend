@@ -1,0 +1,70 @@
+<h1 mat-dialog-title>Створення кімнати</h1>
+<div class="no-scroll" mat-dialog-content [formGroup]="form">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Номер</mat-label>
+      <input matInput formControlName="number" placeholder="1a">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Площа</mat-label>
+          <input matInput formControlName="square" type="number" placeholder="50">
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Часи роботи в середньому</mat-label>
+          <input matInput formControlName="hoursOfUses" type="number" placeholder="5.5">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="row">
+    <mat-grid-list cols="2" rowHeight="4:1">
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Тип кімнати</mat-label>
+          <mat-select formControlName="roomType" [compareWith]="compareById">
+            <mat-option *ngFor="let item of roomTypes | async" [value]="item">{{item.name}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </mat-grid-tile>
+      <mat-grid-tile>
+        <mat-form-field appearance="outline">
+          <mat-label>Кількість років</mat-label>
+          <input matInput formControlName="yearCount" type="number" placeholder="10">
+        </mat-form-field>
+      </mat-grid-tile>
+    </mat-grid-list>
+  </div>
+
+  <div class="row">
+    <mat-checkbox [(ngModel)]="isRecord" [ngModelOptions]="{standalone: true}" (change)="isRecordChanged()">Чи є лампи в
+      кімнаті?
+    </mat-checkbox>
+
+    <mat-form-field appearance="outline" *ngIf="isRecord && record && record.lamp">
+      <mat-label>Тип ламп</mat-label>
+      <mat-select required [(ngModel)]="record.lamp" [ngModelOptions]="{standalone: true}" [compareWith]="compareById"
+                  [disabled]="isEdit">
+        <mat-option *ngFor="let item of lamps" [value]="item">{{item.model}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field appearance="outline" *ngIf="isRecord && record && record.countLamp">
+      <mat-label>Кількість</mat-label>
+      <input required matInput [(ngModel)]="record.countLamp" [ngModelOptions]="{standalone: true}" type="number"
+             [disabled]="isEdit"
+             placeholder="5">
+    </mat-form-field>
+  </div>
+</div>
+<div class="buttons-form" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Назад</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>{{isEdit ? 'Редагувати' : 'Створити'}}</button>
+</div>

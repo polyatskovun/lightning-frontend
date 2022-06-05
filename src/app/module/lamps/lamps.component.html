@@ -7,8 +7,8 @@
 <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
 
   <ng-container matColumnDef="model">
-    <th mat-header-cell *matHeaderCellDef> Модель</th>
-    <td mat-cell *matCellDef="let element"> {{element.model}} </td>
+    <th mat-header-cell *matHeaderCellDef style="max-width: 100px"> Модель</th>
+    <td mat-cell *matCellDef="let element" style="max-width: 100px"> {{element.model}} </td>
   </ng-container>
 
   <ng-container matColumnDef="price">

@@ -25,6 +25,9 @@ import {DeleteDialogComponent} from './module/shared/delete-dialog/delete-dialog
 import {RoomTypesFormComponent} from './module/room-types/room-types-form/room-types-form.component';
 import {LampsFormComponent} from './module/lamps/lamps-form/lamps-form.component';
 import {MatSelectModule} from '@angular/material/select';
+import {MatGridListModule} from '@angular/material/grid-list';
+import {RoomsFormComponent} from './module/rooms/rooms-form/rooms-form.component';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
   imports: [
@@ -41,13 +44,15 @@ import {MatSelectModule} from '@angular/material/select';
     MatIconModule,
     ReactiveFormsModule,
     MatDividerModule,
-    MatSelectModule
+    MatSelectModule,
+    MatGridListModule,
+    MatCheckboxModule
   ],
   declarations: [
     AppComponent,
     DashboardComponent,
     RoomsComponent,
-    RoomTypesFormComponent,
+    RoomsFormComponent,
     RoomsDetailsComponent,
     LampsComponent,
     LampsFormComponent,
@@ -55,6 +60,7 @@ import {MatSelectModule} from '@angular/material/select';
     RoomTypesComponent,
     SocleFormComponent,
     DeleteDialogComponent,
+    RoomTypesFormComponent
   ],
   bootstrap: [AppComponent]
 })

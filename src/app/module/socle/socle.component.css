@@ -18,5 +18,6 @@ th {
 }
 
 .action-row {
-  max-width: 30px !important;
+  max-width: 26px !important;
+  min-width: 26px !important;
 }
