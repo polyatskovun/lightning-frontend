@@ -1,9 +1,11 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {LampService} from "../../service/lamp.service";
 import {Lamp} from "../../model/lamp";
 import {DeleteDialogComponent} from '../shared/delete-dialog/delete-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {LampsFormComponent} from './lamps-form/lamps-form.component';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-lamps',
@@ -12,8 +14,10 @@ import {LampsFormComponent} from './lamps-form/lamps-form.component';
 })
 export class LampsComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   displayedColumns: string[] = ['model', 'price', 'termOfWork', 'luminousFlux', 'power', 'lampType', 'actions'];
-  dataSource!: Lamp[];
+  dataSource = new MatTableDataSource<Lamp>([]);
 
   constructor(private dialog: MatDialog, private service: LampService) {
     this.load();
@@ -56,7 +60,8 @@ export class LampsComponent implements OnInit {
   private load() {
     this.service.findAll().subscribe(l => {
       if (l) {
-        this.dataSource = l;
+        this.dataSource = new MatTableDataSource<Lamp>(l);
+        this.dataSource.paginator = this.paginator;
       }
     });
   }

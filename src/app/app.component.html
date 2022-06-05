@@ -1,11 +1,54 @@
-<div class="center">
+<div class="center" *ngIf="isLogin">
   <h1>{{title}}</h1>
   <nav>
-    <a routerLink="/rooms" [class]="getClass('/rooms')">Кімнати</a>
-    <a routerLink="/room-types" [class]="getClass('/room-types')">Типи кімнат</a>
-    <a routerLink="/lamps" [class]="getClass('/lamps')">Лампи</a>
-    <a routerLink="/socles" [class]="getClass('/socles')">Цоколі</a>
+    <a class="tabs" routerLink="/rooms" [class]="getClass('/rooms')">Кімнати</a>
+    <a class="tabs" routerLink="/room-types" [class]="getClass('/room-types')">Типи кімнат</a>
+    <a class="tabs" routerLink="/lamps" [class]="getClass('/lamps')">Лампи</a>
+    <a class="tabs" routerLink="/socles" [class]="getClass('/socles')">Цоколі</a>
   </nav>
   <mat-divider class="margins"></mat-divider>
   <router-outlet></router-outlet>
+</div>
+<div class="center-login" *ngIf="!isLogin && !isRegister">
+  <h1>Логін</h1>
+  <div class="row">
+    <mat-form-field class="on-full" appearance="outline">
+      <mat-label>Логін</mat-label>
+      <input matInput [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="on-full" appearance="outline">
+      <mat-label>Пароль</mat-label>
+      <input type="password" matInput [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </div>
+  <mat-error *ngIf="isError">Логін або пароль невірний</mat-error>
+  <div class="row">
+    <button class="on-full" (click)="login()">Логін</button>
+  </div>
+  <div class="row">
+    <button class="on-full" (click)="onRegister()">Регістрація</button>
+  </div>
+</div>
+<div class="center-login" *ngIf="!isLogin && isRegister">
+  <h1>Регістрація</h1>
+  <div class="row">
+    <mat-form-field class="on-full" appearance="outline">
+      <mat-label>Логін</mat-label>
+      <input matInput [(ngModel)]="user.username" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <mat-form-field class="on-full" appearance="outline">
+      <mat-label>Пароль</mat-label>
+      <input matInput [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}">
+    </mat-form-field>
+  </div>
+  <div class="row">
+    <button class="on-full" (click)="register()">Регістрація</button>
+  </div>
+  <div class="row">
+    <button class="on-full" (click)="onLogin()">Логін</button>
+  </div>
 </div>

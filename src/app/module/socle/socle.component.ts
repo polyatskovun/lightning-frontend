@@ -1,9 +1,12 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {Socle} from "../../model/socle";
 import {SocleService} from "../../service/socle.service";
 import {MatDialog} from '@angular/material/dialog';
 import {SocleFormComponent} from './socle-form/socle-form.component';
 import {DeleteDialogComponent} from '../shared/delete-dialog/delete-dialog.component';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
+import {Room} from '../../model/room';
 
 @Component({
   selector: 'app-socle',
@@ -12,19 +15,13 @@ import {DeleteDialogComponent} from '../shared/delete-dialog/delete-dialog.compo
 })
 export class SocleComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   displayedColumns: string[] = ['name', 'price', 'place', 'actions'];
-  dataSource: Socle[] = [];
+  dataSource = new MatTableDataSource<Socle>([]);
 
   constructor(private dialog: MatDialog, private service: SocleService) {
     this.load();
-  }
-
-  private load() {
-    this.service.findAll().subscribe(r => {
-      if (r) {
-        this.dataSource = r;
-      }
-    });
   }
 
   ngOnInit(): void {
@@ -57,6 +54,15 @@ export class SocleComponent implements OnInit {
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
         this.service.deleteById(result).subscribe(() => this.load());
+      }
+    });
+  }
+
+  private load() {
+    this.service.findAll().subscribe(r => {
+      if (r) {
+        this.dataSource = new MatTableDataSource<Socle>(r);
+        this.dataSource.paginator = this.paginator;
       }
     });
   }

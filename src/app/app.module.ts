@@ -6,13 +6,12 @@ import {HttpClientModule} from '@angular/common/http';
 import {AppRoutingModule} from './app-routing.module';
 
 import {AppComponent} from './app.component';
-import {DashboardComponent} from './module/dashboard/dashboard.component';
 import {RouterModule} from "@angular/router";
 import {RoomsComponent} from './module/rooms/rooms.component';
 import {LampsComponent} from './module/lamps/lamps.component';
 import {RoomsDetailsComponent} from './module/rooms-details/rooms-details.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {MatTable, MatTableModule} from "@angular/material/table";
+import {MatTableModule} from "@angular/material/table";
 import {SocleComponent} from './module/socle/socle.component';
 import {RoomTypesComponent} from './module/room-types/room-types.component';
 import {SocleFormComponent} from './module/socle/socle-form/socle-form.component';
@@ -28,6 +27,8 @@ import {MatSelectModule} from '@angular/material/select';
 import {MatGridListModule} from '@angular/material/grid-list';
 import {RoomsFormComponent} from './module/rooms/rooms-form/rooms-form.component';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {MatSortModule} from '@angular/material/sort';
+import {MatPaginatorModule} from '@angular/material/paginator';
 
 @NgModule({
   imports: [
@@ -46,11 +47,12 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
     MatDividerModule,
     MatSelectModule,
     MatGridListModule,
-    MatCheckboxModule
+    MatCheckboxModule,
+    MatSortModule,
+    MatPaginatorModule
   ],
   declarations: [
     AppComponent,
-    DashboardComponent,
     RoomsComponent,
     RoomsFormComponent,
     RoomsDetailsComponent,

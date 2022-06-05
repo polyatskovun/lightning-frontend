@@ -36,7 +36,7 @@
       </mat-grid-tile>
       <mat-grid-tile>
         <mat-form-field appearance="outline">
-          <mat-label>Кількість років</mat-label>
+          <mat-label>За скільки років робимо розрахунки?</mat-label>
           <input matInput formControlName="yearCount" type="number" placeholder="10">
         </mat-form-field>
       </mat-grid-tile>
@@ -52,11 +52,11 @@
       <mat-label>Тип ламп</mat-label>
       <mat-select required [(ngModel)]="record.lamp" [ngModelOptions]="{standalone: true}" [compareWith]="compareById"
                   [disabled]="isEdit">
-        <mat-option *ngFor="let item of lamps" [value]="item">{{item.model}}</mat-option>
+        <mat-option *ngFor="let item of lamps" [value]="item">{{item.model}}({{item?.lampType?.name}})</mat-option>
       </mat-select>
     </mat-form-field>
 
-    <mat-form-field appearance="outline" *ngIf="isRecord && record && record.countLamp">
+    <mat-form-field appearance="outline" *ngIf="isRecord && record">
       <mat-label>Кількість</mat-label>
       <input required matInput [(ngModel)]="record.countLamp" [ngModelOptions]="{standalone: true}" type="number"
              [disabled]="isEdit"

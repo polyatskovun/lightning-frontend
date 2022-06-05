@@ -1,9 +1,11 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnInit, ViewChild} from '@angular/core';
 import {RoomTypeService} from "../../service/room-type.service";
 import {RoomType} from "../../model/room-type";
 import {DeleteDialogComponent} from '../shared/delete-dialog/delete-dialog.component';
 import {MatDialog} from '@angular/material/dialog';
 import {RoomTypesFormComponent} from './room-types-form/room-types-form.component';
+import {MatPaginator} from '@angular/material/paginator';
+import {MatTableDataSource} from '@angular/material/table';
 
 @Component({
   selector: 'app-room-types',
@@ -12,8 +14,10 @@ import {RoomTypesFormComponent} from './room-types-form/room-types-form.componen
 })
 export class RoomTypesComponent implements OnInit {
 
+  @ViewChild(MatPaginator) paginator!: MatPaginator;
+
   displayedColumns: string[] = ['name', 'lightningRate', 'actions'];
-  dataSource: RoomType[] = [];
+  dataSource = new MatTableDataSource<RoomType>([]);
 
   constructor(private dialog: MatDialog, private service: RoomTypeService) {
     this.load();
@@ -56,7 +60,8 @@ export class RoomTypesComponent implements OnInit {
   private load() {
     this.service.findAll().subscribe(r => {
       if (r) {
-        this.dataSource = r;
+        this.dataSource = new MatTableDataSource<RoomType>(r);
+        this.dataSource.paginator = this.paginator;
       }
     });
   }

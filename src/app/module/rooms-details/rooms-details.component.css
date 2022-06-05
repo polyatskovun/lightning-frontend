@@ -1,3 +1,27 @@
 table {
   width: 100%;
 }
+
+td {
+  text-align: center;
+}
+
+th {
+  text-align: center !important;
+}
+
+.content-on-end {
+  display: flex;
+  justify-content: flex-end;
+  align-content: flex-end;
+  margin-bottom: 4px;
+}
+
+.action-row {
+  max-width: 88px !important;
+  min-width: 88px !important;
+}
+
+.optimal {
+  background: lightgreen;
+}
