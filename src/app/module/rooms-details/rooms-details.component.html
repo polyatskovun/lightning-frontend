@@ -1,1 +1,35 @@
-<p>rooms-details works!</p>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="lamp">
+    <th mat-header-cell *matHeaderCellDef> Лампа</th>
+    <td mat-cell *matCellDef="let element"> {{element.lamp.model}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="countLamp">
+    <th mat-header-cell *matHeaderCellDef> Кількість ламп</th>
+    <td mat-cell *matCellDef="let element"> {{element.countLamp}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="countSocle">
+    <th mat-header-cell *matHeaderCellDef> Кількість цоколей</th>
+    <td mat-cell *matCellDef="let element"> {{element.countSocle}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="yearCount">
+    <th mat-header-cell *matHeaderCellDef> Роки служби</th>
+    <td mat-cell *matCellDef="let element"> {{element.yearCount}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="sum">
+    <th mat-header-cell *matHeaderCellDef> Сумма</th>
+    <td mat-cell *matCellDef="let element"> {{element.sum}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="actions">
+    <th mat-header-cell *matHeaderCellDef> Дії</th>
+    <td mat-cell *matCellDef="let element"> обрати </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>

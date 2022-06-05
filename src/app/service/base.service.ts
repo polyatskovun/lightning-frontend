@@ -21,4 +21,8 @@ export class BaseService<T> {
   findAll(): Observable<T[]> {
     return this.httpClient.get<T[]>(this.baseUrl);
   }
+
+  findById(id: number): Observable<T> {
+    return this.httpClient.get<T>(this.baseUrl + '/' + id);
+  }
 }

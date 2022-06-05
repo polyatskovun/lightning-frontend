@@ -23,7 +23,6 @@ body {
   }
 }
 body, input[text] {
-  color: #333;
   font-family: Cambria, Georgia, serif;
 }
 a {
@@ -34,7 +33,6 @@ button {
   border: none;
   border-radius: 4px;
   cursor: pointer;
-  color: black;
   font-size: 1.2rem;
   padding: 1rem;
   margin-right: 1rem;
@@ -42,7 +40,6 @@ button {
   margin-top: 1rem;
 }
 button:hover {
-  background-color: black;
   color: white;
 }
 button:disabled {
@@ -68,7 +65,6 @@ nav a:hover {
   background-color:  #42545C;
 }
 nav a.active {
-  background-color: black;
   color: white;
 }
 hr {

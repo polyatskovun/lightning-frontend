@@ -18,10 +18,6 @@ nav a:hover {
   background-color: #42545C;
 }
 
-nav a.active {
-  background-color: black;
-}
-
 .center {
   margin-left: auto;
   margin-right: auto;

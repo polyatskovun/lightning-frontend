@@ -13,6 +13,8 @@ import {LampsComponent} from './module/lamps/lamps.component';
 import {RoomsDetailsComponent} from './module/rooms-details/rooms-details.component';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatTable, MatTableModule} from "@angular/material/table";
+import { SocleComponent } from './module/socle/socle.component';
+import { RoomTypesComponent } from './module/room-types/room-types.component';
 
 @NgModule({
   imports: [
@@ -30,6 +32,8 @@ import {MatTable, MatTableModule} from "@angular/material/table";
     RoomsComponent,
     RoomsDetailsComponent,
     LampsComponent,
+    SocleComponent,
+    RoomTypesComponent,
   ],
   bootstrap: [AppComponent]
 })

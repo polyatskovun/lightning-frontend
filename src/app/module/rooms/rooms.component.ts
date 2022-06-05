@@ -9,11 +9,11 @@ import {RoomService} from "../../service/room.service";
 })
 export class RoomsComponent implements OnInit {
 
-  displayedColumns: string[] = ['number', 'square', 'roomType'];
-  dataSource!: Room[];
+  displayedColumns: string[] = ['number', 'square', 'hoursOfUses', 'roomType', 'lightningRate', 'actions'];
+  dataSource: Room[] = [];
 
-  constructor(private roomService: RoomService) {
-    roomService.findAll().subscribe(r => {
+  constructor(private service: RoomService) {
+    service.findAll().subscribe(r => {
       if (r) {
         this.dataSource = r;
       }
