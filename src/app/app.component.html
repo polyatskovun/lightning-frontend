@@ -5,6 +5,7 @@
     <a class="tabs" routerLink="/room-types" [class]="getClass('/room-types')">Типи кімнат</a>
     <a class="tabs" routerLink="/lamps" [class]="getClass('/lamps')">Лампи</a>
     <a class="tabs" routerLink="/socles" [class]="getClass('/socles')">Цоколі</a>
+    <a class="tabs on-end" (click)="logout()">Вихід</a>
   </nav>
   <mat-divider class="margins"></mat-divider>
   <router-outlet></router-outlet>
@@ -25,10 +26,10 @@
   </div>
   <mat-error *ngIf="isError">Логін або пароль невірний</mat-error>
   <div class="row">
-    <button class="on-full" (click)="login()">Логін</button>
+    <button mat-flat-button class="on-full white-back" (click)="login()">Логін</button>
   </div>
   <div class="row">
-    <button class="on-full" (click)="onRegister()">Регістрація</button>
+    <button mat-flat-button class="on-full white-back" (click)="onRegister()">Регістрація</button>
   </div>
 </div>
 <div class="center-login" *ngIf="!isLogin && isRegister">
@@ -46,9 +47,9 @@
     </mat-form-field>
   </div>
   <div class="row">
-    <button class="on-full" (click)="register()">Регістрація</button>
+    <button mat-flat-button class="on-full white-back" (click)="register()">Регістрація</button>
   </div>
   <div class="row">
-    <button class="on-full" (click)="onLogin()">Логін</button>
+    <button mat-flat-button class="on-full white-back" (click)="onLogin()">Логін</button>
   </div>
 </div>

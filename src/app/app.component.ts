@@ -31,7 +31,7 @@ export class AppComponent {
     }
   }
 
-  login() {
+  login(): void {
     this.userService.login(this.user).subscribe(r => {
       if (r && r.isAccess) {
         sessionStorage.setItem('login', 'true');
@@ -41,17 +41,22 @@ export class AppComponent {
     });
   }
 
-  register() {
+  register(): void {
     this.userService.save(this.user).subscribe(r => {
       this.isRegister = false;
     });
   }
 
-  onRegister() {
+  onRegister(): void {
     this.isRegister = true;
   }
 
-  onLogin() {
+  onLogin(): void {
     this.isRegister = false;
+  }
+
+  logout(): void {
+    sessionStorage.removeItem('login');
+    this.isLogin = false;
   }
 }

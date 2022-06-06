@@ -35,7 +35,17 @@ h1 {
 }
 
 .on-full {
+  margin-top: 10px;
   width: 50%;
+}
+
+::ng-deep .mat-form-field-appearance-outline .mat-form-field-outline {
+  background-color: rgb(255, 255, 255, 0.8);
+  border-radius: 5px;
+}
+
+.white-back {
+  background: rgb(255, 255, 255, 0.8);
 }
 
 .center-login {
@@ -45,4 +55,9 @@ h1 {
   align-content: center;
   justify-content: center;
   text-align: center;
+}
+
+.on-end {
+  position: absolute;
+  right: 460px;
 }
