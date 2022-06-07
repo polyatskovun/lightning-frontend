@@ -36,9 +36,6 @@
     <ng-container matColumnDef="actions">
       <th class="action-row" mat-header-cell *matHeaderCellDef> Дії</th>
       <td class="action-row" mat-cell *matCellDef="let element">
-        <button mat-button routerLink="/rooms-details/{{element.id}}">
-          <mat-icon>search</mat-icon>
-        </button>
         <button mat-button (click)="openDialog(element)">
           <mat-icon>edit</mat-icon>
         </button>

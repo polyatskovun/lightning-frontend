@@ -9,7 +9,7 @@ import {RoomTypesComponent} from "./module/room-types/room-types.component";
 
 const routes: Routes = [
   {path: '', redirectTo: '/rooms', pathMatch: 'full'},
-  {path: 'rooms-details/:id', component: RoomsDetailsComponent},
+  {path: 'rooms-details', component: RoomsDetailsComponent},
   {path: 'rooms', component: RoomsComponent},
   {path: 'room-types', component: RoomTypesComponent},
   {path: 'socles', component: SocleComponent},

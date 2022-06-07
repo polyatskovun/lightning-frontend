@@ -1,10 +1,17 @@
 <div class="row content-box">
-  <button class="content-on-start" mat-button routerLink="/rooms">
+  <button mat-button routerLink="/rooms">
     <mat-icon>arrow_back</mat-icon>
     Повернутись
   </button>
 
-  <button class="content-on-end" mat-button (click)="openDialog()">
+  <mat-form-field appearance="outline">
+    <mat-label>Кімната</mat-label>
+    <mat-select [compareWith]="compareById" [(ngModel)]="id" (selectionChange)="load()">
+      <mat-option *ngFor="let item of rooms | async" [value]="item.id">{{item.number}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <button mat-button (click)="openDialog()">
     <mat-icon>refresh</mat-icon>
     Обновити
   </button>

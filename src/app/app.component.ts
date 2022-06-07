@@ -24,7 +24,9 @@ export class AppComponent {
   }
 
   getClass(url: string): string {
-    if (this.router.url.includes(url)) {
+    if (url == '/rooms-details' && this.router.url.includes(url)) {
+      return 'selected';
+    } else if (url == '/rooms' && this.router.url.includes(url) && !this.router.url.includes('/rooms-details')) {
       return 'selected';
     } else {
       return '';

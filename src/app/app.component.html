@@ -2,9 +2,7 @@
   <h1>{{title}}</h1>
   <nav>
     <a class="tabs" routerLink="/rooms" [class]="getClass('/rooms')">Кімнати</a>
-    <a class="tabs" routerLink="/room-types" [class]="getClass('/room-types')">Типи кімнат</a>
-    <a class="tabs" routerLink="/lamps" [class]="getClass('/lamps')">Лампи</a>
-    <a class="tabs" routerLink="/socles" [class]="getClass('/socles')">Цоколі</a>
+    <a class="tabs" routerLink="/rooms-details" [class]="getClass('/rooms-details')">Деталі кімнати</a>
     <a class="tabs on-end" (click)="logout()">Вихід</a>
   </nav>
   <mat-divider class="margins"></mat-divider>
