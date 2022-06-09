@@ -17,7 +17,7 @@ export class RoomsDetailsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['countLamp', 'countSocle', 'yearCount', 'sum', 'lamp', 'status'];
+  displayedColumns: string[] = ['lamp', 'countLamp', 'socle', 'countSocle', 'sum'];
   dataSource = new MatTableDataSource<Record>([]);
   room!: Room;
   rooms: Observable<Room[]>;
@@ -96,7 +96,9 @@ export class RoomsDetailsComponent implements OnInit {
   getClass(element: Record): string {
     if (element.recordType?.id == 4 || element.recordType?.id == 5) {
       return 'optimal';
-    } else {
+    } else if (element.recordType?.id == 1) {
+      return 'existing';
+    }  else {
       return '';
     }
   }

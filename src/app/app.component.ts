@@ -28,6 +28,8 @@ export class AppComponent {
       return 'selected';
     } else if (url == '/rooms' && this.router.url.includes(url) && !this.router.url.includes('/rooms-details')) {
       return 'selected';
+    } else if (url == '/room-lightning' && this.router.url.includes(url)) {
+      return 'selected';
     } else {
       return '';
     }

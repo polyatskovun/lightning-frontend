@@ -25,3 +25,7 @@ th {
 .optimal {
   background: lightgreen;
 }
+
+.existing {
+  background: lightyellow;
+}

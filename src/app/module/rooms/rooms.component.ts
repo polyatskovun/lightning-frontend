@@ -16,7 +16,7 @@ export class RoomsComponent implements OnInit {
 
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  displayedColumns: string[] = ['number', 'square', 'hoursOfUses', 'roomType', 'lightningRate', 'actions'];
+  displayedColumns: string[] = ['number', 'square', 'hoursOfUses', 'roomType', 'actions'];
   dataSource = new MatTableDataSource<Room>([]);
 
   constructor(private dialog: MatDialog, private service: RoomService) {

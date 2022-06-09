@@ -3,17 +3,14 @@ import {RouterModule, Routes} from '@angular/router';
 
 import {RoomsDetailsComponent} from "./module/rooms-details/rooms-details.component";
 import {RoomsComponent} from "./module/rooms/rooms.component";
-import {LampsComponent} from "./module/lamps/lamps.component";
-import {SocleComponent} from "./module/socle/socle.component";
-import {RoomTypesComponent} from "./module/room-types/room-types.component";
+import {RoomLightningComponent} from "./module/room-lightning/room-lightning.component";
+import {DashboardComponent} from './module/dashboard/dashboard.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/rooms', pathMatch: 'full'},
+  {path: '', component: DashboardComponent, pathMatch: 'full'},
   {path: 'rooms-details', component: RoomsDetailsComponent},
   {path: 'rooms', component: RoomsComponent},
-  {path: 'room-types', component: RoomTypesComponent},
-  {path: 'socles', component: SocleComponent},
-  {path: 'lamps', component: LampsComponent}
+  {path: 'room-lightning', component: RoomLightningComponent},
 ];
 
 @NgModule({

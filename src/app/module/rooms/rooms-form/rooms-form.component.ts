@@ -11,7 +11,7 @@ import {Lamp} from '../../../model/lamp';
 import {LampService} from '../../../service/lamp.service';
 
 @Component({
-  selector: 'app-room-types-form',
+  selector: 'app-room-lightning-form',
   templateUrl: './rooms-form.component.html',
   styleUrls: ['./rooms-form.component.css']
 })
