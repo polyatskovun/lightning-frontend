@@ -25,22 +25,12 @@
   </div>
 
   <div class="row">
-    <mat-grid-list cols="2" rowHeight="4:1">
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
-          <mat-label>Тип кімнати</mat-label>
-          <mat-select formControlName="roomType" [compareWith]="compareById">
-            <mat-option *ngFor="let item of roomTypes | async" [value]="item">{{item.name}}</mat-option>
-          </mat-select>
-        </mat-form-field>
-      </mat-grid-tile>
-      <mat-grid-tile>
-        <mat-form-field appearance="outline">
-          <mat-label>За скільки років робимо розрахунки?</mat-label>
-          <input matInput formControlName="yearCount" type="number" placeholder="10">
-        </mat-form-field>
-      </mat-grid-tile>
-    </mat-grid-list>
+    <mat-form-field appearance="outline">
+      <mat-label>Тип кімнати</mat-label>
+      <mat-select formControlName="roomType" [compareWith]="compareById">
+        <mat-option *ngFor="let item of roomTypes | async" [value]="item">{{item.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
   </div>
 
   <div class="row">

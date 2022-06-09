@@ -31,7 +31,7 @@ export class RoomsFormComponent implements OnInit {
     square: [null, Validators.required],
     hoursOfUses: [null, Validators.required],
     roomType: [null, Validators.required],
-    yearCount: [null, Validators.required],
+    yearCount: [1, Validators.required],
     records: [null]
   });
 
@@ -57,6 +57,7 @@ export class RoomsFormComponent implements OnInit {
       this.lamps = res;
       this.defaultLamp = res[0]
     });
+    this.form.get('yearCount')?.disable();
   }
 
   ngOnInit(): void {
@@ -87,10 +88,14 @@ export class RoomsFormComponent implements OnInit {
   }
 
   isRecordChanged(): void {
-    this.record = {
-      recordType: {id: 1},
-      countLamp: 1,
-      lamp: this.defaultLamp
-    };
+    if(this.isRecord){
+      this.record = {
+        recordType: {id: 1},
+        countLamp: 1,
+        lamp: this.defaultLamp
+      };
+    } else {
+      this.record = undefined;
+    }
   }
 }
