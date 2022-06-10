@@ -34,7 +34,8 @@
   </div>
 
   <div class="row">
-    <mat-checkbox [(ngModel)]="isRecord" [ngModelOptions]="{standalone: true}" (change)="isRecordChanged()">Чи є лампи в
+    <mat-checkbox [(ngModel)]="isRecord" [disabled]="isEdit" [ngModelOptions]="{standalone: true}"
+                  (change)="isRecordChanged()">Чи є лампи в
       кімнаті?
     </mat-checkbox>
 
@@ -56,5 +57,5 @@
 </div>
 <div class="buttons-form" mat-dialog-actions>
   <button mat-button (click)="onNoClick()">Назад</button>
-  <button mat-button (click)="onSubmit()" cdkFocusInitial>{{isEdit ? 'Редагувати' : 'Створити'}}</button>
+  <button mat-button (click)="onSubmit()">{{isEdit ? 'Редагувати' : 'Створити'}}</button>
 </div>

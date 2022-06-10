@@ -9,6 +9,7 @@ import {RoomTypeService} from '../../../service/room-type.service';
 import {Record} from '../../../model/record';
 import {Lamp} from '../../../model/lamp';
 import {LampService} from '../../../service/lamp.service';
+import {environment} from "../../../../environments/environment";
 
 @Component({
   selector: 'app-room-lightning-form',
@@ -77,7 +78,7 @@ export class RoomsFormComponent implements OnInit {
         hoursOfUses: this.form.get('hoursOfUses')?.value,
         roomType: this.form.get('roomType')?.value,
         records: records,
-        yearCount: this.form.get('yearCount')?.value
+        yearCount: environment.years
       };
       this.dialogRef.close(room);
     }

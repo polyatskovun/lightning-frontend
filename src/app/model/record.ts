@@ -11,4 +11,5 @@ export interface Record {
   room?: Room
   lamp?: Lamp
   recordType?: RecordType
+  sumElectricity?: number
 }
