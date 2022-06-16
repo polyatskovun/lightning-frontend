@@ -4,7 +4,8 @@
 
 export const environment = {
   production: false,
-  years: 10
+  years: 10,
+  traffic: 1.66
 };
 
 /*

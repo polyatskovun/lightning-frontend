@@ -29,3 +29,9 @@ th {
 .existing {
   background: #e5e5a1;
 }
+
+.print-box {
+  align-content: center !important;
+  text-align: center !important;
+  margin-bottom: 10px !important;
+}

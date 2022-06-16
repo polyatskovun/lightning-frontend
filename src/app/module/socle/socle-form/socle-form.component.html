@@ -1,0 +1,27 @@
+<h1 mat-dialog-title>{{isEdit ? 'Редагування цоколя' : 'Створення цоколя'}}</h1>
+<div mat-dialog-content [formGroup]="form">
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Ім'я</mat-label>
+      <input matInput formControlName="name" placeholder="e27">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Ціна</mat-label>
+      <input matInput formControlName="price" type="number" placeholder="29">
+    </mat-form-field>
+  </div>
+
+  <div class="row">
+    <mat-form-field appearance="outline">
+      <mat-label>Місць</mat-label>
+      <input matInput formControlName="place" type="number" placeholder="2">
+    </mat-form-field>
+  </div>
+</div>
+<div class="buttons-form" mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Назад</button>
+  <button mat-button (click)="onSubmit()" cdkFocusInitial>{{isEdit ? 'Редагувати' : 'Створити'}}</button>
+</div>

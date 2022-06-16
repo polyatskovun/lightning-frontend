@@ -9,4 +9,5 @@ export interface Room {
   roomType?: RoomType
   records?: Record[]
   yearCount?: number
+  traffic?: number
 }

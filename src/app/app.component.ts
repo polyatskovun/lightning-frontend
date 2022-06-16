@@ -30,6 +30,10 @@ export class AppComponent {
       return 'selected';
     } else if (url == '/room-lightning' && this.router.url.includes(url)) {
       return 'selected';
+    } else if (url == '/lamps' && this.router.url.includes(url)) {
+      return 'selected';
+    } else if (url == '/socles' && this.router.url.includes(url)) {
+      return 'selected';
     } else {
       return '';
     }

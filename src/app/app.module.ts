@@ -24,7 +24,11 @@ import {RoomsFormComponent} from './module/rooms/rooms-form/rooms-form.component
 import {MatCheckboxModule} from '@angular/material/checkbox';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
-import { DashboardComponent } from './module/dashboard/dashboard.component';
+import {DashboardComponent} from './module/dashboard/dashboard.component';
+import {LampsComponent} from './module/lamps/lamps.component';
+import {SocleComponent} from './module/socle/socle.component';
+import {SocleFormComponent} from './module/socle/socle-form/socle-form.component';
+import {LampsFormComponent} from './module/lamps/lamps-form/lamps-form.component';
 
 @NgModule({
   imports: [
@@ -49,6 +53,10 @@ import { DashboardComponent } from './module/dashboard/dashboard.component';
   ],
   declarations: [
     AppComponent,
+    LampsComponent,
+    LampsFormComponent,
+    SocleComponent,
+    SocleFormComponent,
     RoomsComponent,
     RoomsFormComponent,
     RoomsDetailsComponent,

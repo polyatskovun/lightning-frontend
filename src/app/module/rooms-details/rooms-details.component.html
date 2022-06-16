@@ -1,5 +1,5 @@
 <div class="row content-box">
-  <button mat-button (click)="print()" [disabled]="!room">
+  <button mat-button (click)="generatePDF()" [disabled]="!room">
     <mat-icon>print</mat-icon>
     Роздрукувати
   </button>
@@ -11,57 +11,67 @@
     </mat-select>
   </mat-form-field>
 
-  <button mat-button (click)="openDialog()">
-    <mat-icon>refresh</mat-icon>
+  <mat-form-field appearance="outline">
+    <mat-label>Ціна за електроенергію</mat-label>
+    <input required matInput [(ngModel)]="traffic" [ngModelOptions]="{standalone: true}" type="number"
+           placeholder="1.66">
+  </mat-form-field>
 
+  <button mat-button (click)="update()">
+    <mat-icon>refresh</mat-icon>
   </button>
 </div>
+<div id="print" style="padding-top: 10px !important;">
+  <div class="print-box" [hidden]="!isPrint">
+    Кімната {{room?.number}} - {{room?.roomType?.name}}
+  </div>
 
-<div class="mat-elevation-z8" id="print-div">
-  <table class="to-background" mat-table [dataSource]="dataSource">
+  <div class="mat-elevation-z8" id="print-div">
+    <table class="to-background" mat-table [dataSource]="dataSource">
 
-    <ng-container matColumnDef="lamp">
-      <th mat-header-cell *matHeaderCellDef>Лампа</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.lamp.model}} </td>
-    </ng-container>
+      <ng-container matColumnDef="lamp">
+        <th mat-header-cell *matHeaderCellDef>Лампа</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.lamp.model}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="countLamp">
-      <th mat-header-cell *matHeaderCellDef>К-сть ламп</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.countLamp}} </td>
-    </ng-container>
+      <ng-container matColumnDef="countLamp">
+        <th mat-header-cell *matHeaderCellDef>К-сть ламп</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.countLamp}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="socle">
-      <th mat-header-cell *matHeaderCellDef>Цоколь</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.lamp.socle.name}} </td>
-    </ng-container>
+      <ng-container matColumnDef="socle">
+        <th mat-header-cell *matHeaderCellDef>Цоколь</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.lamp.socle.name}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="countSocle">
-      <th mat-header-cell *matHeaderCellDef>К-сть цоколей</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.countSocle}} </td>
-    </ng-container>
+      <ng-container matColumnDef="countSocle">
+        <th mat-header-cell *matHeaderCellDef>К-сть цоколей</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.countSocle}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="years">
-      <th mat-header-cell *matHeaderCellDef>К-сть років</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.yearCount }} </td>
-    </ng-container>
+      <ng-container matColumnDef="years">
+        <th mat-header-cell *matHeaderCellDef>К-сть років</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.yearCount }} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="sumElectricity">
-      <th mat-header-cell *matHeaderCellDef>Оплата за електроенергію</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.sumElectricity.toFixed(2)}} </td>
-    </ng-container>
+      <ng-container matColumnDef="sumElectricity">
+        <th mat-header-cell *matHeaderCellDef>Оплата за електроенергію</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.sumElectricity.toFixed(2)}} </td>
+      </ng-container>
 
-    <ng-container matColumnDef="sum">
-      <th mat-header-cell *matHeaderCellDef>Загальні затрати</th>
-      <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.sum.toFixed(2)}} </td>
-    </ng-container>
+      <ng-container matColumnDef="sum">
+        <th mat-header-cell *matHeaderCellDef>Загальні затрати</th>
+        <td mat-cell *matCellDef="let element" [class]="getClass(element)"> {{element.sum.toFixed(2)}} </td>
+      </ng-container>
 
-    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
-  </table>
+      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+      <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    </table>
 
-  <mat-paginator [pageSizeOptions]="[10, 20]"
-                 aria-label="Select page of periodic elements">
-  </mat-paginator>
+    <mat-paginator [pageSizeOptions]="[10, 20]"
+                   aria-label="Select page of periodic elements">
+    </mat-paginator>
+  </div>
+  <br/>
+  <br/>
 </div>
-<br/>
-<br/>

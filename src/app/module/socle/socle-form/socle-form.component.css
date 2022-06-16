@@ -1,0 +1,9 @@
+mat-form-field {
+  width: 100% !important;
+}
+
+.buttons-form {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
